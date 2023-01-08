@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
-import axios from "axios";
-import * as actions from "../../store/actions";
-import { deleteAppointmentUrl } from "../../constants/urls";
-import Spinner from "../../components/Spinner/Spinner";
-import { Button, Modal } from "antd";
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import * as actions from '../../store/actions';
+import { deleteAppointmentUrl } from '../../constants/urls';
+import Spinner from '../../components/Spinner/Spinner';
+import { Button, Modal } from 'antd';
 
 class BookedServices extends React.Component {
   state = { showModal: false, serviceToCancel: {} };
@@ -18,9 +18,7 @@ class BookedServices extends React.Component {
     const { onFetchAppointments, token, userId } = this.props;
 
     axios
-      .delete(
-        `${deleteAppointmentUrl}${id}.json?auth=${token}`
-      )
+      .delete(`${deleteAppointmentUrl}${id}.json?auth=${token}`)
       .then(() => {
         onFetchAppointments(token, userId);
         this.setState({ showModal: false, serviceToCancel: {} });
@@ -46,12 +44,12 @@ class BookedServices extends React.Component {
           appointments.map((appointment) => (
             <div
               key={appointment.id}
-              className="account__card-row d-flex space-between align-items-center"
+              className='account__card-row d-flex space-between align-items-center'
             >
               <p>{appointment.service}</p>
               <p>{appointment.time}</p>
               <Button
-                type="danger"
+                type='danger'
                 onClick={() => this.onDeleteHandler(appointment)}
               >
                 Cancel
@@ -63,7 +61,7 @@ class BookedServices extends React.Component {
         )}
         {showModal && (
           <Modal
-            title=""
+            title=''
             visible={true}
             onOk={() => this.OkHandle(serviceToCancel.id)}
             onCancel={this.CancelHandle}

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { Button, Carousel } from "antd";
-import { Routes } from "../../constants/routes";
-import "./Home.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Button, Carousel } from 'antd';
+import { Routes } from '../../constants/routes';
+import './Home.css';
 
 class Home extends React.Component {
   onRedirectHandler = () => {
@@ -12,57 +12,50 @@ class Home extends React.Component {
 
   render() {
     const { isAuthenticated } = this.props;
-    
+
     return (
-      <div className="wrapper wrapper--home d-flex space-between align-items-center">
+      <div className='wrapper wrapper--home d-flex space-between align-items-center'>
         <div>
-          <h2 className="title">
-            Cuts, Colour Specialists, Hair, Waxing for Men & Women
+          <h2 className='title'>
+            Welcome to Lina's Beauty Salon, your one stop shop for all your
+            beauty needs. We offer a wide range of services from haircuts, hair
+            coloring, hair styling, facials, waxing, and makeup.
           </h2>
           {isAuthenticated ? (
-            <Link to="/appointment">
-              <Button type="primary" size={"large"} className="button-main">
-                Book an appointment
+            <Link to='/appointment'>
+              <Button type='primary' size={'large'} className='button-main'>
+                Book an Appointment
               </Button>
             </Link>
           ) : (
             <Button
-              type="primary"
-              size={"large"}
-              className="button-main"
+              type='primary'
+              size={'large'}
+              className='button-main'
               onClick={this.onRedirectHandler}
             >
-              Sign up for booking
+              Sign In for booking
             </Button>
           )}
         </div>
-        <Carousel dotPosition="bottom" autoplay="true">
-          <div className="slide">
+        <Carousel effect='fade' dotPosition='bottom' autoplay='true'>
+          <div className='slide'>
             <img
-              src="/images/stylist-1.jpg"
-              alt="Anna is a cutting Specialist"
+              src='/images/stylist-1.jpg'
+              alt='Anna is a cutting Specialist'
             ></img>
-            <h3>Anna</h3>
-            <div>Cutting Specialist</div>
           </div>
           <div>
             <img
-              src="/images/stylist-2.png"
-              alt="Whitney is a Makeup Artist and a Facial Waxing Specialist"
+              src='/images/stylist-2.png'
+              alt='Whitney is a Makeup Artist and a Facial Waxing Specialist'
             ></img>
-            <h3>Whitney</h3>
-            <div>
-              Makeup Artist,
-              <br /> Facial Waxing Specialist
-            </div>
           </div>
           <div>
             <img
-              src="/images/stylist-3.jpg"
-              alt="Karla is a Master Colorist"
+              src='/images/stylist-3.jpg'
+              alt='Karla is a Master Colorist'
             ></img>
-            <h3>Karla</h3>
-            <div>Master Colorist</div>
           </div>
         </Carousel>
       </div>

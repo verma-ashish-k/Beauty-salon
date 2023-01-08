@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { Routes } from "../../constants/routes";
-import ServicesList from "../ServicesList/ServicesList";
-import { Icon } from "antd";
-import "./ServiceDetail.css";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Routes } from '../../constants/routes';
+import ServicesList from '../ServicesList/ServicesList';
+import { Icon } from 'antd';
+import './ServiceDetail.css';
 
 class ServiceDetail extends React.Component {
   onSignupHandler = () => {
@@ -14,22 +14,22 @@ class ServiceDetail extends React.Component {
   render() {
     const { services, isAuthenticated, forWhom } = this.props;
     return (
-      <div className="wrapper">
-        <Link to={forWhom} key={forWhom} className="service__info">
+      <div className='wrapper'>
+        <Link to={forWhom} key={forWhom} className='service__info'>
           <span>Back to services</span>
         </Link>
-        <div className="service__wrapper d-flex flex-column">
-          <div className="service__description">
+        <div className='service__wrapper d-flex flex-column'>
+          <div className='service__description'>
             {services.selectedService.description}
           </div>
           {services.selectedService && <ServicesList />}
         </div>
         {!isAuthenticated && (
-          <div className="service__info">
-            <Icon type="exclamation-circle" className="service__icon" />
+          <div className='service__info'>
+            <Icon type='exclamation-circle' className='service__icon' />
             Booking is available only for authenticated customers. If you want
             to book an appointment
-            <span onClick={this.onSignupHandler}> click for sign in.</span>
+            <span onClick={this.onSignupHandler}> Click to Sign in.</span>
           </div>
         )}
       </div>
